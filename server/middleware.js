@@ -6,7 +6,7 @@ const authmiddleware = (req, res, next) => {
   if (!authheader || !authheader.startsWith("Bearer")) {
     return res.status(403).json({ message: "No token, authorization denied!" });
   }
-  //taking onlu auth token from header
+  //taking only auth token from header
   const token = authheader.split(" ")[1];
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
